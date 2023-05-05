@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.pageContainer{
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+    margin: 0px auto;
+    max-width: 600px;
+    background-color: aqua;
+}
+.list{
+    list-style-position: inside;
+    list-style-type: none;
+}
+.list>li{
+    text-align: left;
+    padding: 3px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.done{
+    text-decoration: line-through;
+    color: #888888;
+}
