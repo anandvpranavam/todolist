@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,7 +6,7 @@
 
 
 
-.pageContainer{
+.pageContainer {
     /* display: flex;
     justify-content: center; */
     text-align: center;
@@ -14,16 +14,25 @@
     max-width: 600px;
     background-color: aqua;
 }
-.list{
+
+.list {
     list-style-position: inside;
     list-style-type: none;
 }
-.list>li{
+
+.list>li {
+    /* display: flex; */
     text-align: left;
     padding: 3px 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-.done{
+
+.done {
     text-decoration: line-through;
     color: #888888;
 }
+
+/* .line-button{
+    margin-left: auto;
+    display:inline-block;
+} */
