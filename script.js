@@ -5,24 +5,25 @@ console.log(addButton)
 const list = document.getElementById("listElements")
 console.log("Hello", list)
 
-function handleClick() {
-    console.log("clicked me", input.value);
-    addItem(input.value);
-}
-function addItem(itemValue) {
+// function handleClick() {
+//     console.log("clicked me", input.value);
+//     addListItem(input.value);
+// }
+function addListItem(itemValue) {
+    if(itemValue !== ""){
     const li = document.createElement("li");
     li.innerText = itemValue;
     list.appendChild(li);
+    }
 }
-addButton.addEventListener("click", handleClick)
+// addButton.addEventListener("click", handleClick)
 
-const myInput = document.getElementById("myinput")
-myInput.addEventListener("keyup", handlekeyUp)
+const myForm = document.getElementById("myForm")
+myForm.addEventListener("submit", handleSubmit)
 
-function handlekeyUp(event){
-    console.log("this is my input", event.target.value)
-    const divValue = document.getElementById("target")
-    divValue.innerText = event.target.value;
-    // target.innerText = event.target.value;
-
+function handleSubmit(event){
+    event.preventDefault();
+    console.log("hey", event);
+    addListItem(input.value);
+    input.value = "";
 }
