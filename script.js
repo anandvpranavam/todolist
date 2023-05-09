@@ -15,3 +15,14 @@ function addItem(itemValue) {
     list.appendChild(li);
 }
 addButton.addEventListener("click", handleClick)
+
+const myInput = document.getElementById("myinput")
+myInput.addEventListener("keyup", handlekeyUp)
+
+function handlekeyUp(event){
+    console.log("this is my input", event.target.value)
+    const divValue = document.getElementById("target")
+    divValue.innerText = event.target.value;
+    // target.innerText = event.target.value;
+
+}
