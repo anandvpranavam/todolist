@@ -1,45 +1,33 @@
-const input = document.getElementById("input")
-const addButton = document.getElementById("addButton")
-const list = document.getElementById("listElements")
-const todos = [];
+const form = document.getElementById("myForm")
+const todoArray = []
 
-// localStorage.setItem("name", "anand");
-const myForm = document.getElementById("myForm")    
-myForm.addEventListener("submit", handleSubmit)   //to get the "Enter" event
-
-function handleSubmit(event){
-    event.preventDefault();
-    todos.push(input.value);
-    // addListItem(input.value)
-    input.value = "";
-    removeAllListItems();
-    displayItem();    
-}
-function displayItem(){
-    todos.forEach(function(a,b,c){
-        addListItem(a)
-        // console.log("a=", a);
-        // console.log("b=",b);
-        // console.log("c=",c);
-    })
-}
-
-function addListItem(itemValue){
-    if (itemValue !== ""){
-        const li = document.createElement("li")
-    li.innerText = itemValue;
-    list.appendChild(li)
-    } 
-}
-function removeAllListItems(){
-    const listItems = document.getElementsByTagName("li");
-    console.log(listItems)
-    for (let i = 0;i<listItems.length;i++){
-        console.log("list item",i)
-        listItems[i].remove();
+class Todo{
+    constructor(textItem, isDone){
+        this.textItem = textItem;
+        this.isDone = isDone;
     }
 }
 
-displayItem();
-removeAllListItems();
+function handleSubmit(event){
+    event.preventDefault();
+    const input = document.getElementById("input")
+    const todoItem = new Todo(input.value, false)
+    todoArray.push(todoItem)
+    console.log(todoArray)
+    displayTodoArray()
+    input.value = "";
 
+} 
+
+function displayTodoArray(){
+     const mainDiv = document.getElementById("myDiv")
+     mainDiv.innerHTML="";
+     todoArray.forEach(todo =>{
+        const subDiv = document.createElement("div")
+        const todoString = JSON.stringify(todo)
+        subDiv.innerText = todoString;
+        mainDiv.appendChild(subDiv);
+     })
+}
+
+form.addEventListener("submit", handleSubmit)
